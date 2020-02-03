@@ -59,7 +59,7 @@ message is picked up by the worker process. The worker process tries to sign
 up the student; it then sends an e-mail (implementaion can just log the message) to inform the student whether signing 
 up succeeded.
 
-## Part 3: Querying
+## Part 3: Aggregating & Querying data
 
 For analysis purposes, the company needs to know per course the minimum age, the
 maximum age and the average age of students that signed up for the courses.
