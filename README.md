@@ -8,10 +8,7 @@ We want you to tackle all 3 parts. There won't be enough time to code everything
 In code we will evaluate:
 
 - Domain model design (usage of DDD concepts: aggregates, value objects, domains services, etc)
-- Dependency injection
-- Code testability
 - Writing and organizing tests
-- Asynchronous code (usage of async/await)
 - Asynchrony through messaging (events, commands)
 - Namings
 - Exception handling and logging
