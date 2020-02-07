@@ -1,6 +1,6 @@
 # Assignment: Course Sign-up System
 
-Below assignment consists of 3 parts.
+Below assignment consists of 2 parts.
 
 The assignment is intentionally made too big, we suggest you spend a maximum of 4 hours on it. Please prepare and send along with the assignment a presentation file explaining what you did and especially how you would take it further to completion.
 
@@ -37,16 +37,12 @@ there is a maximum number of students that can participate.
 
 To sign up, students need to supply their name and their age.
 
-## Part 1: Prevent from overbooking the course
+## Part 1: Scaling out
+
+There are many courses and millions of sign ups.
 
 Create a logic that will sign up students a course. 
 If a course is full, it should not be possible to sign up any more.
-
-## Part 2: Scaling out
-
-After few months, the company's courses grow wildly successfull, business is 
-booming. There are many courses and millions of sign ups, and your synchronous 
-app that uses logic from Part 1 cannot handle the load any more.
 
 Create facility that defers the actual processing to a 
 worker process: signing up is processed asynchronously via a message bus.
@@ -56,7 +52,7 @@ message is picked up by the worker process. The worker process tries to sign
 up the student; it then sends an e-mail (implementaion can just log the message) to inform the student whether signing 
 up succeeded.
 
-## Part 3: Aggregating & Querying data
+## Part 2: Aggregating & Querying data
 
 For analysis purposes, the company needs to know per course the minimum age, the
 maximum age and the average age of students that signed up for the courses.
