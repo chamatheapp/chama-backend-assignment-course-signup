@@ -1,86 +1,51 @@
 # Assignment: Course Sign-up System
 
-Below assignment consists of 3 parts and a presentation.
+## Evaluation
 
-The assignment is intentionally made too big, we suggest you spend a maximum of 5 hours on it. Please prepare and send along with the assignment a presentation file explaining what you did and especially how you would take it further to completion.
+The assignment is designed to check your coding and problem-solving skills. It is intentionally made too big. We suggest you spend a maximum of 4 hours on it, therefore you need to decide which components of the system you will code and which you will mock. 
+For example, we are more interested in Architecture and Domain model design than in Swagger setup or Mongo repository implementation.
 
-We will evaluate your skills in the following areas:
-- Dependency injection
-- Writing testable code
-- Test strategy (what to test)
-- Writing and organizing tests
+You can use solution skeleton from this repository.
+
+Please send us a link to your git repository. In case you have a private repository, share it with the emails sent to you along with this assignment. The repository must contain code and README.md file in the root directory.
+
+What we evaluate in the code:
+- Domain model design (usage of DDD concepts: aggregates, value objects, domain services, etc)
+- Messaging (Commands and Events)
+- Code organization (modularity, dependencies between modules, etc)
 - Exception handling and logging
-- Asynchronous code (async/await)
-- Asynchrony through messaging (events, commands)
-- Web API
-- Knowledge of Azure infrastructure and storage technologies (WebJobs, Azure Functions, SQL, Table Storage, Cosmos DB, ...)
-- Namings
-- Code organisation (modularity, dependencies between modules etc)
-- Domain model design (DDD concepts: aggregates, value objects, domains services, etc)
-- Handling concurrency and scaling out your solution
+- Writing and organizing tests
+- Task-based asynchronous programming
 
-Please upload the code of the assignment and the presentation at least 24 hours before you present it. You may upload your solution to a github repository, but please don't fork from this assignment repository, as other candidates will then see it. Please do not publish the solution to this assignment in any other way.
+What we expect to see in the README:
+- Architectural overview (knowledge of distributed services, cloud platforms)
+- Explanation of solutions for both parts
+- Test strategy for this solution (what to test)
+- What tools and technologies you used (libraries, framework, tools, storage types, cloud platform features)
+- What you think that it can be improved and how
+- Anything you will find beneficial to put here
 
 ## Case description
 
-You start working at a company that offers online courses.
+You start working at Chama Online University that offers online courses.
+For each of the courses, there is one lecturer, and for each of courses there is a maximum number of students that can participate. 
+To sign up, students need to supply their email, name and date of birth.
 
-For each of the courses, there is one teacher/lecturer, and for each of the courses
-there is a maximum number of students that can participate. 
+### Part 1: Massive growth
 
-To sign up, students need to supply their name and their age.
+There are many courses and millions of sign-ups.
 
-## Part 1: API for signing up
+Create a logic that will sign up students for a course. 
+If a course is full, it should not be possible to sign up anymore (even with concurrent requests).
 
-Create an API endpoint with which students can sign up for a course. 
+Create a bombastic facility that defers the actual processing to a 
+worker process: signing up is processed asynchronously via a message bus. The worker tries to sign up the student then notifies the student whether signing up succeeded or not.
 
-If a course is full, it should not be possible to sign up any more.
+### Part 2: Aggregating & Querying data
 
-The endpoint's response should indicate whether signing up was successful.
+For analysis purposes, the company needs to know the minimum, maximum and average age of the students for all courses.
+Consider that this needs to keep working efficiently when there are millions
+of sign-ups per day. Calculating this statistic at every request is not feasible. 
 
-## Part 2: Scaling out
 
-After few months, the company's courses grow wildly successfull, business is 
-booming. There are many courses and millions of sign ups, and your synchronous 
-in-process API which you have created in the Part 1 cannot handle the load any more.
 
-Create a new endpoint for your API that defers the actual processing to a 
-worker process: signing up is processed asynchronously via a message bus.
-
-This works as follows. The API puts a command message on a queue, and the 
-message is picked up by the worker process. The worker process tries to sign 
-up the student; it then sends an e-mail to inform the student whether signing 
-up succeeded.
-
-You can implement "sending an email" with a mock implementation that logs 
-success or failure. 
-
-## Part 3: Querying
-
-For analysis purposes, the company needs to know per course the minimum age, the
-maximum age and the average age of students that signed up for the courses.
-Consider that this needs to keep working efficiently when there are millions 
-of sign-ups per day: calculating this information at every request is unfeasable.
-
-Create two API endpoints:
-- GET list: which returns a list with the above information for each course, plus
-the course total capacity and current number of students
-- GET details: which returns the above information for a single course, plus
-the teacher and the list of registered students
-
-## Wrapping up (Mandatory)
-Prepare few slides for your presentation.
-
-Our next interview would start with a 15-20 minutes presentation of your slides, explaining what you did and especially how you would take it further to completion: we want you to not only demonstrate how you code, but also how you transfer knowledge. The rest of the time (40-45 minutes) we will talk about the assignment, how you did it and what are other ways of approaching the problem.
-
-Please attach the presentation file (pdf, ppt, keynote, google slides link) inside your project/repository test.
-
-Required:
-- Explore your architecture decision
-- What tools and technologies you used (libraries, framework, tools etc)
-- Why did you decide to use technology X and not Y
-- How you solve each step (API, Scaling out and Querying)
-
-Bonus:
-- The problems and challenges that you have faced
-- What you think that it can be improved and how
