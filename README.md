@@ -46,6 +46,3 @@ worker process: signing up is processed asynchronously via a message bus. The wo
 For analysis purposes, the company needs to know the minimum, maximum and average age of the students for all courses.
 Consider that this needs to keep working efficiently when there are millions
 of sign-ups per day. Calculating this statistic at every request is not feasible. 
-
-
-
