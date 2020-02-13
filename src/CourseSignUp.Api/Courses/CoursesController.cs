@@ -1,28 +1,33 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using System;
+using System.Threading.Tasks;
 
 namespace CourseSignUp.Api.Courses
 {
-    [ApiController]
-    [Route("[controller]")]
+    [ApiController, Route("[controller]")]
     public class CoursesController : ControllerBase
     {
-        private readonly ILogger<CoursesController> _logger;
-
-        public CoursesController(ILogger<CoursesController> logger)
+        [HttpGet, Route("{id}")]
+        public async Task<IActionResult> Get(string id)
         {
-            _logger = logger;
+            // TODO
+            return Ok(new CourseDto
+            {
+
+            });
         }
 
-        [HttpPost]
-        [Route("sign-up")]
-        public IActionResult Post([FromBody] SignUpModel signUpModel)
+        [HttpPost, Route("create")]
+        public Task<IActionResult> Post([FromBody]CreateCourseDto createCourseDto)
         {
-            _logger.LogInformation($"Sign up student {signUpModel.Name} " +
-                                   $"age {signUpModel.Age} " +
-                                   $"into course {signUpModel.CourseId}.");
-            
-            return Accepted();
+            throw new NotImplementedException();
+        }
+
+        [HttpPost, Route("sign-up")]
+        public Task<IActionResult> Post([FromBody] SignUpToCourseDto signUpToCourseDto)
+        {
+            throw new NotImplementedException();
+
         }
     }
 }
