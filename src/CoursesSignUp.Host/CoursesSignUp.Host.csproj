@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Chama.Infrastructure.Handlers\Chama.Infrastructure.Handlers.csproj" />
+    <ProjectReference Include="..\CourseSignUp.Contracts\CourseSignUp.Contracts.csproj" />
+    <ProjectReference Include="..\CourseSignUp.EntityFramework.Providers\CourseSignUp.EntityFramework.Providers.csproj" />
+    <ProjectReference Include="..\CoursesSignUp.Application\CoursesSignUp.Application.csproj" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.10" />
+  </ItemGroup>
+
+
+</Project>

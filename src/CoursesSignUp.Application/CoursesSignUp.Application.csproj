@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Chama.EntityFramework\Chama.EntityFramework.csproj" />
+      <ProjectReference Include="..\Chama.Infrastructure.Handlers\Chama.Infrastructure.Handlers.csproj" />
+      <ProjectReference Include="..\CourseSignUp.Contracts\CourseSignUp.Contracts.csproj" />
+      <ProjectReference Include="..\CourseSignUp.EntityFramework.Providers\CourseSignUp.EntityFramework.Providers.csproj" />
+      <ProjectReference Include="..\CoursesSignUp.Core\CoursesSignUp.Core.csproj" />
+    </ItemGroup>
+
+</Project>

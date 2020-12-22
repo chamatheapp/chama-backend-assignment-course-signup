@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoFixture" Version="4.15.0" />
+        <PackageReference Include="Moq" Version="4.15.2" />
+        <PackageReference Include="NUnit" Version="3.12.0" />
+        <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Chama.Infrastructure.Handlers\Chama.Infrastructure.Handlers.csproj" />
+      <ProjectReference Include="..\CourseSignUp.EntityFramework.Providers\CourseSignUp.EntityFramework.Providers.csproj" />
+      <ProjectReference Include="..\CoursesSignUp.Application\CoursesSignUp.Application.csproj" />
+      <ProjectReference Include="..\CoursesSignUp.Core\CoursesSignUp.Core.csproj" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.10" />
+
+    </ItemGroup>
+
+</Project>
